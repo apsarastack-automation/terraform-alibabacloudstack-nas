@@ -1,0 +1,38 @@
+{
+  "file_system_id": {
+    "type": "string",
+    "description": "The ID of the created file system"
+  },
+  "file_system_description": {
+    "type": "string",
+    "description": "The description of the file system"
+  },
+  "mount_target_domain": {
+    "type": "string",
+    "description": "The domain of the mount target"
+  },
+  "access_group_name": {
+    "type": "string",
+    "description": "The name of the access group"
+  },
+  "quota_status": {
+    "type": "string",
+    "description": "The status of directory quota"
+  },
+  "file_system_type": {
+    "type": "string",
+    "description": "The type of the file system"
+  },
+  "protocol_type": {
+    "type": "string",
+    "description": "The protocol type of the file system"
+  },
+  "storage_type": {
+    "type": "string",
+    "description": "The storage type of the file system"
+  },
+  "zone_id": {
+    "type": "string",
+    "description": "The zone ID of the file system"
+  }
+}
