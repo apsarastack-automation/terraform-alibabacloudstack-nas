@@ -1,0 +1,16 @@
+{
+  "name": "nas_namespace",
+  "description": "Module for managing Alibaba Cloud NAS namespace with filesystems, access groups, and lifecycle policies",
+  "provider": "alibabacloudstack",
+  "version": "1.0.0",
+  "category": "Storage",
+  "tags": ["nas", "namespace", "filesystem", "storage"],
+  "related_resources": [
+    "alibabacloudstack_nas_namespace",
+    "alibabacloudstack_nas_file_system",
+    "alibabacloudstack_nas_accessgroup",
+    "alibabacloudstack_nas_namespace_filesystem_attachment",
+    "alibabacloudstack_nas_namespace_group",
+    "alibabacloudstack_nas_lifecycle_policy"
+  ]
+}

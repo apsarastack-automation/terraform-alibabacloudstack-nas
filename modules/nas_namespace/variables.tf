@@ -1,8 +1,3 @@
-variable "name" {
-  description = "The name prefix for all resources"
-  default     = "terraform-nas-namespace"
-}
-
 variable "description" {
   description = "Description for the NAS namespace"
   default     = "Managed by Terraform"
@@ -15,26 +10,16 @@ variable "nas_namespace_id" {
 
 variable "filesystems" {
   description = "List of filesystem configurations to create and attach to namespace"
-  type = list(object({
-    protocol_type     = string
-    storage_type      = string
-    encrypt_type      = optional(string, "0")
-    file_system_type  = optional(string, "standard")
-    capacity          = optional(string, "")
-    zone_id           = optional(string, "")
-    cluster_id        = optional(string, "")
-    kms_key_id        = optional(string, "")
-    description       = optional(string, "")
-  }))
-  default = []
+  type        = list(string)
+  default     = []
 }
 
 variable "accessgroups" {
   description = "List of access group configurations"
   type = list(object({
     access_group_name = string
-    access_group_type = string  # Vpc or Classic
-    vswitch_id        = optional(string, "")  # Required for VPC type
+    mapped_path       = string  # Namespace mapped path
+    vswitch_id        = optional(string, "")
   }))
   default = []
 }

@@ -1,18 +1,14 @@
-module "nas_module" {
-  source = "./modules/nas_file_system"
+module "nas_namespace" {
+  source = "./modules/nas_namespace"
   
-  # File system parameters
-  protocol_type     = var.protocol_type
-  storage_type      = var.storage_type
-  description       = var.description
-  
-  # Mount target parameters
-  mounts            = var.mounts
-  
-  # Quota parameters
-  quota_path        = var.quota_path
-  quotas            = var.quotas
-  
-  # Existing file system
-  nas_file_system_id = var.nas_file_system_id
+  name                   = var.name
+  description            = var.description
+  nas_namespace_id       = var.nas_namespace_id
+  filesystems            = var.filesystems
+  accessgroups           = var.accessgroups
+  lifecycle_policy_name  = var.lifecycle_policy_name
+  lifecycle_rule_name    = var.lifecycle_rule_name
+  path                   = var.path
+  oss_bucket             = var.oss_bucket
+  recursive              = var.recursive
 }
