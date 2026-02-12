@@ -1,3 +1,3 @@
 variable "description" {
-  default = "tf-namespace"
+  default = "tf-namespace3"
 }

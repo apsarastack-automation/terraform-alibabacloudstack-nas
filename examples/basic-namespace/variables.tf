@@ -1,5 +1,5 @@
 variable "description" {
-  default = "tf-namespace"
+  default = "tf-namespace1"
 }
 
 variable "filesystems" {

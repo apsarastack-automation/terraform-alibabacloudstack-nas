@@ -6,11 +6,9 @@ data "alibabacloudstack_nas_namespaces" "default" {
   ids = [var.nas_namespace_id]
 }
 
-
-
 # Create or use existing NAS namespace
 resource "alibabacloudstack_nas_namespace" "default" {
-  count = length(data.alibabacloudstack_nas_namespaces.default.namespaces) > 0 ? 0 : 1
+  count = length(data.alibabacloudstack_nas_namespaces.default.ids) > 0 ? 0 : 1
   
   zone_id       = data.alibabacloudstack_nas_zones.default.zones.0.zone_id
   cluster_id    = data.alibabacloudstack_nas_zones.default.zones.0.clusters.0.cluster_id
@@ -22,7 +20,7 @@ resource "alibabacloudstack_nas_namespace" "default" {
 
 # Local value for namespace ID (existing or newly created)
 locals {
-  namespace_id = length(data.alibabacloudstack_nas_namespaces.default.namespaces) > 0 ? data.alibabacloudstack_nas_namespaces.default.namespaces.0.id : alibabacloudstack_nas_namespace.default.0.id
+  namespace_id = length(data.alibabacloudstack_nas_namespaces.default.ids) > 0 ? data.alibabacloudstack_nas_namespaces.default.ids.0: alibabacloudstack_nas_namespace.default.0.id
 }
 
 # Create NAS file systems based on filesystems parameter
@@ -30,18 +28,18 @@ resource "alibabacloudstack_nas_file_system" "filesystems" {
   for_each = { for filesystem in var.filesystems: filesystem=>filesystem }
   protocol_type    = data.alibabacloudstack_nas_zones.default.zones.0.clusters.0.instance_types.0.protocol_type
   storage_type     = data.alibabacloudstack_nas_zones.default.zones.0.clusters.0.instance_types.0.storage_type
-  description      = each.value.filesystem
+  description      = each.value
   zone_id          = data.alibabacloudstack_nas_zones.default.zones.0.zone_id
   cluster_id       = data.alibabacloudstack_nas_zones.default.zones.0.clusters.0.cluster_id
 }
 
 # Attach file systems to namespace (one-to-many binding)
 resource "alibabacloudstack_nas_namespace_filesystem_attachment" "attachments" {
-  count = length(var.filesystems)
+  for_each = { for filesystem in var.filesystems: filesystem=>filesystem }
   
   nas_namespace_id = local.namespace_id
-  mapped_path      = alibabacloudstack_nas_file_system.filesystems[count.index].description
-  file_system_id   = alibabacloudstack_nas_file_system.filesystems[count.index].id
+  mapped_path      = alibabacloudstack_nas_file_system.filesystems[each.key].description
+  file_system_id   = alibabacloudstack_nas_file_system.filesystems[each.key].id
 }
 
 # Create access groups based on accessgroups parameter
@@ -72,17 +70,3 @@ resource "alibabacloudstack_nas_namespace_group" "namespace_groups" {
   nas_namespace_id    = local.namespace_id
   mount_target_domain = alibabacloudstack_nas_namespace_mount_target.mount_targets[each.key].mount_target_domain
 }
-# # Create lifecycle policy if all required parameters are provided
-# resource "alibabacloudstack_nas_lifecycle_policy" "lifecycle" {
-#   count = (var.lifecycle_policy_name != "" && 
-#            var.lifecycle_rule_name != "" && 
-#            var.path != "" && 
-#            var.oss_bucket != "") ? 1 : 0
-  
-#   lifecycle_policy_name = var.lifecycle_policy_name
-#   file_system_id        = alibabacloudstack_nas_file_system.filesystems[0].id  # Use first filesystem
-#   path                  = var.path
-#   recursive             = var.recursive
-#   lifecycle_rule_name   = var.lifecycle_rule_name
-#   oss_bucket            = var.oss_bucket
-# }

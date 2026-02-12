@@ -23,29 +23,3 @@ variable "accessgroups" {
   }))
   default = []
 }
-
-variable "lifecycle_policy_name" {
-  description = "Lifecycle policy name"
-  default     = ""
-}
-
-variable "lifecycle_rule_name" {
-  description = "Lifecycle rule name (DEFAULT_ATIME_14/30/60/90)"
-  default     = ""
-}
-
-variable "path" {
-  description = "Absolute path for lifecycle policy"
-  default     = "/"
-}
-
-variable "oss_bucket" {
-  description = "OSS bucket name for lifecycle policy"
-  default     = ""
-}
-
-variable "recursive" {
-  description = "Whether to recursively apply lifecycle policy to sub-paths"
-  type        = bool
-  default     = false
-}

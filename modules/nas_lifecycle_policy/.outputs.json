@@ -1,0 +1,12 @@
+{
+  "outputs": [
+    {
+      "name": "lifecycle_policy_id",
+      "description": "The ID of the created lifecycle policy"
+    },
+    {
+      "name": "create_time",
+      "description": "The creation time of the lifecycle policy"
+    }
+  ]
+}

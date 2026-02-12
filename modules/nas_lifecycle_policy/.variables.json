@@ -1,0 +1,49 @@
+{
+  "variables": [
+    {
+      "name": "file_system_id",
+      "type": "string",
+      "description": "The ID of the file system to apply lifecycle policy",
+      "required": true
+    },
+    {
+      "name": "lifecycle_policy_name",
+      "type": "string",
+      "description": "Lifecycle policy name",
+      "required": true
+    },
+    {
+      "name": "lifecycle_rule_name",
+      "type": "string",
+      "description": "Lifecycle rule name (DEFAULT_ATIME_14/30/60/90)",
+      "required": true
+    },
+    {
+      "name": "path",
+      "type": "string",
+      "description": "Absolute path for lifecycle policy",
+      "default": "/",
+      "required": false
+    },
+    {
+      "name": "oss_bucket",
+      "type": "string",
+      "description": "OSS bucket name for lifecycle policy",
+      "required": true
+    },
+    {
+      "name": "recursive",
+      "type": "bool",
+      "description": "Whether to recursively apply lifecycle policy to sub-paths",
+      "default": false,
+      "required": false
+    },
+    {
+      "name": "storage_type",
+      "type": "string",
+      "description": "The type of storage after the data dump. Default value: InfrequentAccess",
+      "default": "InfrequentAccess",
+      "required": false
+    }
+  ]
+}

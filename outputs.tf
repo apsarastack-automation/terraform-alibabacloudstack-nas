@@ -22,13 +22,3 @@ output "namespace_group_ids" {
   description = "List of namespace group IDs"
   value       = module.nas_namespace.namespace_group_ids
 }
-
-output "lifecycle_policy_id" {
-  description = "The ID of the lifecycle policy (if created)"
-  value       = module.nas_namespace.lifecycle_policy_id
-}
-
-output "filesystem_attachments" {
-  description = "List of filesystem attachment IDs"
-  value       = module.nas_namespace.filesystem_attachments
-}

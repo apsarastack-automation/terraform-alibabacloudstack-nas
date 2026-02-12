@@ -1,13 +1,6 @@
 {
   "variables": [
     {
-      "name": "name",
-      "type": "string",
-      "description": "The name prefix for all resources",
-      "default": "terraform-nas-namespace",
-      "required": false
-    },
-    {
       "name": "description",
       "type": "string",
       "description": "Description for the NAS namespace",
@@ -23,7 +16,7 @@
     },
     {
       "name": "filesystems",
-      "type": "list(object)",
+      "type": "list(string)",
       "description": "List of filesystem configurations to create and attach to namespace",
       "default": [],
       "required": false
@@ -33,41 +26,6 @@
       "type": "list(object)",
       "description": "List of access group configurations",
       "default": [],
-      "required": false
-    },
-    {
-      "name": "lifecycle_policy_name",
-      "type": "string",
-      "description": "Lifecycle policy name",
-      "default": "",
-      "required": false
-    },
-    {
-      "name": "lifecycle_rule_name",
-      "type": "string",
-      "description": "Lifecycle rule name (DEFAULT_ATIME_14/30/60/90)",
-      "default": "",
-      "required": false
-    },
-    {
-      "name": "path",
-      "type": "string",
-      "description": "Absolute path for lifecycle policy",
-      "default": "/",
-      "required": false
-    },
-    {
-      "name": "oss_bucket",
-      "type": "string",
-      "description": "OSS bucket name for lifecycle policy",
-      "default": "",
-      "required": false
-    },
-    {
-      "name": "recursive",
-      "type": "bool",
-      "description": "Whether to recursively apply lifecycle policy to sub-paths",
-      "default": false,
       "required": false
     }
   ]
