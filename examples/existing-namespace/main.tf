@@ -15,7 +15,7 @@ resource "alibabacloudstack_nas_namespace" "existing" {
 
 
 module "existing_namespace" {
-  source = "../.."
+  source      = "../../modules/nas_namespace"
   
   description      = var.description
   nas_namespace_id = alibabacloudstack_nas_namespace.existing.id
@@ -26,12 +26,12 @@ module "existing_namespace" {
     {
       access_group_name = "tf-access-group1"
       vswitch_id        = ""
-      mapped_path       = "/test1"
+      mapped_path       = "test1"
     },
     {
       access_group_name = "tf-access-group2"
       vswitch_id        = ""
-      mapped_path       = "/test2"
+      mapped_path       = "test2"
     }
   ]
 }

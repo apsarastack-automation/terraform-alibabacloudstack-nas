@@ -17,7 +17,7 @@ resource "alibabacloudstack_vpc_vswitch" "existing" {
 }
 
 module "vpc_namespace" {
-  source = "../.."
+  source = "../../modules/nas_namespace"
 
   description = var.description
 
@@ -25,12 +25,12 @@ module "vpc_namespace" {
     {
       access_group_name = "tf-access-group1"
       vswitch_id        = alibabacloudstack_vpc_vswitch.existing[0].id
-      mapped_path       = "/test1"
+      mapped_path       = "test1"
     },
     {
       access_group_name = "tf-access-group2"
       vswitch_id        = alibabacloudstack_vpc_vswitch.existing[1].id
-      mapped_path       = "/test2"
+      mapped_path       = "test2"
     }
   ]
 }
