@@ -1,0 +1,52 @@
+{
+  "variables": [
+    {
+      "name": "protocol_type",
+      "type": "string",
+      "description": "File transfer protocol type",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "storage_type",
+      "type": "string",
+      "description": "The storage type",
+      "default": "",
+      "required": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "File system description",
+      "required": true
+    },
+    {
+      "name": "mounts",
+      "type": "list(object)",
+      "description": "A list of access group configurations",
+      "default": [],
+      "required": false
+    },
+    {
+      "name": "quota_path",
+      "type": "string",
+      "description": "Whether to enable directory quota",
+      "default": "/",
+      "required": false
+    },
+    {
+      "name": "quotas",
+      "type": "list(object)",
+      "description": "A list of quota configurations",
+      "default": [],
+      "required": false
+    },
+    {
+      "name": "nas_file_system_id",
+      "type": "string",
+      "description": "Existing file system ID",
+      "default": "",
+      "required": false
+    }
+  ]
+}

@@ -1,38 +1,22 @@
 {
-  "file_system_id": {
+  "nas_namespace_id": {
     "type": "string",
-    "description": "The ID of the created file system"
+    "description": "The ID of the NAS namespace"
   },
-  "file_system_description": {
-    "type": "string",
-    "description": "The description of the file system"
+  "filesystem_ids": {
+    "type": "list",
+    "description": "List of created filesystem IDs"
   },
-  "mount_target_domain": {
-    "type": "string",
-    "description": "The domain of the mount target"
+  "access_group_ids": {
+    "type": "list",
+    "description": "List of created access group IDs"
   },
-  "access_group_name": {
-    "type": "string",
-    "description": "The name of the access group"
+  "mount_target_domains": {
+    "type": "list",
+    "description": "List of mount target domains for VPC access groups"
   },
-  "quota_status": {
-    "type": "string",
-    "description": "The status of directory quota"
-  },
-  "file_system_type": {
-    "type": "string",
-    "description": "The type of the file system"
-  },
-  "protocol_type": {
-    "type": "string",
-    "description": "The protocol type of the file system"
-  },
-  "storage_type": {
-    "type": "string",
-    "description": "The storage type of the file system"
-  },
-  "zone_id": {
-    "type": "string",
-    "description": "The zone ID of the file system"
+  "namespace_group_ids": {
+    "type": "list",
+    "description": "List of namespace group IDs"
   }
 }

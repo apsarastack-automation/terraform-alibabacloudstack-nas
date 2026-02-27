@@ -1,92 +1,27 @@
 {
   "name": {
     "type": "string",
-    "description": "The name used for all resources in this module",
-    "default": "terraform-nas-module"
-  },
-  "file_system_type": {
-    "type": "string",
-    "description": "The type of file system. Valid values: standard, extreme, cpfs",
-    "default": "standard"
-  },
-  "protocol_type": {
-    "type": "string",
-    "description": "File transfer protocol type. Valid values: NFS, SMB, cpfs",
-    "default": "NFS"
-  },
-  "storage_type": {
-    "type": "string",
-    "description": "The storage type. For standard: Performance, Capacity, Premium. For extreme: standard, advance",
-    "default": "Capacity"
+    "description": "The name prefix for all resources",
+    "default": "terraform-nas-namespace"
   },
   "description": {
     "type": "string",
-    "description": "File system description",
+    "description": "Description for the NAS namespace",
     "default": "Managed by Terraform"
   },
-  "encrypt_type": {
+  "nas_namespace_id": {
     "type": "string",
-    "description": "Whether the file system is encrypted. 0: not encrypted, 1: NAS managed key, 2: User management key",
-    "default": "0"
+    "description": "Existing NAS namespace ID. If provided, will use existing namespace instead of creating new one",
+    "default": ""
   },
-  "capacity": {
-    "type": "number",
-    "description": "The capacity of the file system in GiB. Required when file_system_type = extreme",
-    "default": null
-  },
-  "zone_id": {
-    "type": "string",
-    "description": "The zone ID. Required when file_system_type = extreme or cpfs",
-    "default": null
-  },
-  "kms_key_id": {
-    "type": "string",
-    "description": "The KMS key ID for encryption. Required when encrypt_type = 2",
-    "default": null
-  },
-  "mount": {
-    "type": "bool",
-    "description": "Whether to create mount target",
-    "default": true
-  },
-  "vswitch_id": {
-    "type": "string",
-    "description": "The ID of the VSwitch for mount target",
-    "default": null
-  },
-  "status": {
-    "type": "string",
-    "description": "The status of the mount target. Valid values: Active, Inactive",
-    "default": "Active"
-  },
-  "access_group_name": {
-    "type": "string",
-    "description": "The name of the permission group",
-    "default": null
-  },
-  "access_group_type": {
-    "type": "string",
-    "description": "Permission group types. Valid values: Vpc, Classic",
-    "default": "Vpc"
-  },
-  "quota_enabled": {
-    "type": "bool",
-    "description": "Whether to enable directory quota",
-    "default": false
-  },
-  "quota_path": {
-    "type": "string",
-    "description": "The absolute path of the directory for quota",
-    "default": "/"
-  },
-  "quotas": {
-    "type": "list",
-    "description": "A list of quota configurations",
+  "filesystems": {
+    "type": "list(string)",
+    "description": "List of filesystem configurations to create and attach to namespace",
     "default": []
   },
-  "nas_file_system_id": {
-    "type": "string",
-    "description": "Existing file system ID. If provided, will not create new file system",
-    "default": null
+  "accessgroups": {
+    "type": "list(object)",
+    "description": "List of access group configurations",
+    "default": []
   }
 }

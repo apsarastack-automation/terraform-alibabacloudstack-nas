@@ -1,0 +1,14 @@
+{
+  "name": "nas_file_system",
+  "description": "Module for creating NAS file system with access groups, mount targets and directory quotas",
+  "provider": "alibabacloudstack",
+  "version": "1.0.0",
+  "category": "Storage",
+  "tags": ["nas", "filesystem", "storage"],
+  "related_resources": [
+    "alibabacloudstack_nas_file_system",
+    "alibabacloudstack_nas_accessgroup",
+    "alibabacloudstack_nas_mounttarget",
+    "alibabacloudstack_nas_dir_quota"
+  ]
+}
