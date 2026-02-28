@@ -1,0 +1,37 @@
+{
+  "file_system_id": {
+    "description": "The ID of the created file system",
+    "i18n": {
+      "zh-Hans": "创建的文件系统的ID。",
+      "en-US": "The ID of the created file system"
+    }
+  },
+  "file_system_description": {
+    "description": "The description of the file system",
+    "i18n": {
+      "zh-Hans": "文件系统的描述。",
+      "en-US": "The description of the file system"
+    }
+  },
+  "oss_bucket_id": {
+    "description": "The ID of the created OSS bucket",
+    "i18n": {
+      "zh-Hans": "创建的OSS存储桶的ID。",
+      "en-US": "The ID of the created OSS bucket"
+    }
+  },
+  "lifecycle_policy_id": {
+    "description": "The ID of the created lifecycle policy",
+    "i18n": {
+      "zh-Hans": "创建的生命周期策略的ID。",
+      "en-US": "The ID of the created lifecycle policy"
+    }
+  },
+  "lifecycle_policy_create_time": {
+    "description": "The creation time of the lifecycle policy",
+    "i18n": {
+      "zh-Hans": "生命周期策略的创建时间。",
+      "en-US": "The creation time of the lifecycle policy"
+    }
+  }
+}

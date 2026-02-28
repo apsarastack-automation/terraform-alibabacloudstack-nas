@@ -1,0 +1,14 @@
+{
+  "title": {
+    "zh-Hans": "带生命周期策略的NAS命名空间",
+    "en-US": "NAS Namespace with Lifecycle Policy"
+  },
+  "overview": {
+    "zh-Hans": "此示例演示如何创建NAS文件系统并应用生命周期策略以实现自动数据管理。",
+    "en-US": "This example demonstrates how to create a NAS file system and apply a lifecycle policy for automatic data management."
+  },
+  "description": {
+    "zh-Hans": "创建带生命周期策略的NAS命名空间示例",
+    "en-US": "Example for creating NAS namespace with lifecycle policy"
+  }
+}

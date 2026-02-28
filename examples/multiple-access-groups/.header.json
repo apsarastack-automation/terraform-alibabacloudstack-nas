@@ -1,0 +1,14 @@
+{
+  "title": {
+    "zh-Hans": "NAS多访问组",
+    "en-US": "NAS Multiple Access Groups"
+  },
+  "overview": {
+    "zh-Hans": "此示例演示如何创建带有多个访问组和挂载目标的NAS文件系统。",
+    "en-US": "This example demonstrates how to create a NAS file system with multiple access groups and mount targets."
+  },
+  "description": {
+    "zh-Hans": "创建NAS多访问组的示例",
+    "en-US": "Example for creating NAS with multiple access groups"
+  }
+}

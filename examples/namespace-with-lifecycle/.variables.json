@@ -1,0 +1,12 @@
+{
+  "name": {
+    "description": "Name prefix for resources",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "资源名称前缀。",
+      "en-US": "Name prefix for resources"
+    },
+    "default": "tf-lifecycle"
+  }
+}

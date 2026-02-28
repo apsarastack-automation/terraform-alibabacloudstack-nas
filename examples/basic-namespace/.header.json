@@ -1,0 +1,14 @@
+{
+  "title": {
+    "zh-Hans": "基础NAS命名空间",
+    "en-US": "Basic NAS Namespace"
+  },
+  "overview": {
+    "zh-Hans": "此示例演示如何创建一个基础的NAS命名空间，并附加文件系统。",
+    "en-US": "This example demonstrates how to create a basic NAS namespace with file systems."
+  },
+  "description": {
+    "zh-Hans": "创建基础NAS命名空间的示例",
+    "en-US": "Example for creating basic NAS namespace"
+  }
+}

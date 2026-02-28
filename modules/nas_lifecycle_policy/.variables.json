@@ -1,49 +1,68 @@
 {
-  "variables": [
-    {
-      "name": "file_system_id",
-      "type": "string",
-      "description": "The ID of the file system to apply lifecycle policy",
-      "required": true
-    },
-    {
-      "name": "lifecycle_policy_name",
-      "type": "string",
-      "description": "Lifecycle policy name",
-      "required": true
-    },
-    {
-      "name": "lifecycle_rule_name",
-      "type": "string",
-      "description": "Lifecycle rule name (DEFAULT_ATIME_14/30/60/90)",
-      "required": true
-    },
-    {
-      "name": "path",
-      "type": "string",
-      "description": "Absolute path for lifecycle policy",
-      "default": "/",
-      "required": false
-    },
-    {
-      "name": "oss_bucket",
-      "type": "string",
-      "description": "OSS bucket name for lifecycle policy",
-      "required": true
-    },
-    {
-      "name": "recursive",
-      "type": "bool",
-      "description": "Whether to recursively apply lifecycle policy to sub-paths",
-      "default": false,
-      "required": false
-    },
-    {
-      "name": "storage_type",
-      "type": "string",
-      "description": "The type of storage after the data dump. Default value: InfrequentAccess",
-      "default": "InfrequentAccess",
-      "required": false
+  "file_system_id": {
+    "description": "The ID of the file system to apply lifecycle policy",
+    "type": "string",
+    "optional": false,
+    "i18n": {
+      "zh-Hans": "要应用生命周期策略的文件系统ID。",
+      "en-US": "The ID of the file system to apply lifecycle policy"
     }
-  ]
+  },
+  "lifecycle_policy_name": {
+    "description": "Lifecycle policy name",
+    "type": "string",
+    "optional": false,
+    "i18n": {
+      "zh-Hans": "生命周期策略名称。",
+      "en-US": "Lifecycle policy name"
+    }
+  },
+  "lifecycle_rule_name": {
+    "description": "Lifecycle rule name (DEFAULT_ATIME_14/30/60/90)",
+    "type": "string",
+    "optional": false,
+    "i18n": {
+      "zh-Hans": "生命周期规则名称（DEFAULT_ATIME_14/30/60/90）。",
+      "en-US": "Lifecycle rule name (DEFAULT_ATIME_14/30/60/90)"
+    }
+  },
+  "path": {
+    "description": "Absolute path for lifecycle policy",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "生命周期策略的绝对路径。",
+      "en-US": "Absolute path for lifecycle policy"
+    },
+    "default": "/"
+  },
+  "oss_bucket": {
+    "description": "OSS bucket name for lifecycle policy",
+    "type": "string",
+    "optional": false,
+    "i18n": {
+      "zh-Hans": "生命周期策略的OSS存储桶名称。",
+      "en-US": "OSS bucket name for lifecycle policy"
+    }
+  },
+  "recursive": {
+    "description": "Whether to recursively apply lifecycle policy to sub-paths",
+    "type": "bool",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "是否递归地将生命周期策略应用到子路径。",
+      "en-US": "Whether to recursively apply lifecycle policy to sub-paths"
+    },
+    "default": false
+  },
+  "storage_type": {
+    "description": "The type of storage after the data dump. Default value: InfrequentAccess",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "数据转储后的存储类型。默认值：InfrequentAccess。",
+      "en-US": "The type of storage after the data dump. Default value: InfrequentAccess"
+    },
+    "default": "InfrequentAccess"
+  }
 }

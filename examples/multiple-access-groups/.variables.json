@@ -1,0 +1,22 @@
+{
+  "description": {
+    "description": "Description for the NAS file system",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "NAS文件系统的描述。",
+      "en-US": "Description for the NAS file system"
+    },
+    "default": "tftest0"
+  },
+  "quota_path": {
+    "description": "Path for directory quota",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "目录配额的路径。",
+      "en-US": "Path for directory quota"
+    },
+    "default": "/"
+  }
+}

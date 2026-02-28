@@ -1,0 +1,44 @@
+{
+  "vpc_ids": {
+    "description": "The IDs of the created VPCs",
+    "i18n": {
+      "zh-Hans": "创建的VPC的ID列表。",
+      "en-US": "The IDs of the created VPCs"
+    }
+  },
+  "vswitch_ids": {
+    "description": "The IDs of the created VSwitches",
+    "i18n": {
+      "zh-Hans": "创建的VSwitch的ID列表。",
+      "en-US": "The IDs of the created VSwitches"
+    }
+  },
+  "file_system_id": {
+    "description": "The ID of the created file system",
+    "i18n": {
+      "zh-Hans": "创建的文件系统的ID。",
+      "en-US": "The ID of the created file system"
+    }
+  },
+  "file_system_description": {
+    "description": "The description of the file system",
+    "i18n": {
+      "zh-Hans": "文件系统的描述。",
+      "en-US": "The description of the file system"
+    }
+  },
+  "protocol_type": {
+    "description": "The protocol type of the file system",
+    "i18n": {
+      "zh-Hans": "文件系统的协议类型。",
+      "en-US": "The protocol type of the file system"
+    }
+  },
+  "storage_type": {
+    "description": "The storage type of the file system",
+    "i18n": {
+      "zh-Hans": "文件系统的存储类型。",
+      "en-US": "The storage type of the file system"
+    }
+  }
+}

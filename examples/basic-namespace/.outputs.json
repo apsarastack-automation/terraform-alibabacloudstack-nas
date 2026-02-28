@@ -1,0 +1,37 @@
+{
+  "nas_namespace_id": {
+    "description": "The ID of the NAS namespace",
+    "i18n": {
+      "zh-Hans": "NAS命名空间的ID。",
+      "en-US": "The ID of the NAS namespace"
+    }
+  },
+  "filesystem_ids": {
+    "description": "List of created filesystem IDs",
+    "i18n": {
+      "zh-Hans": "创建的文件系统ID列表。",
+      "en-US": "List of created filesystem IDs"
+    }
+  },
+  "access_group_ids": {
+    "description": "List of created access group IDs",
+    "i18n": {
+      "zh-Hans": "创建的访问组ID列表。",
+      "en-US": "List of created access group IDs"
+    }
+  },
+  "mount_target_domains": {
+    "description": "List of mount target domains for VPC access groups",
+    "i18n": {
+      "zh-Hans": "VPC访问组的挂载目标域名列表。",
+      "en-US": "List of mount target domains for VPC access groups"
+    }
+  },
+  "namespace_group_ids": {
+    "description": "List of namespace group IDs",
+    "i18n": {
+      "zh-Hans": "命名空间组ID列表。",
+      "en-US": "List of namespace group IDs"
+    }
+  }
+}

@@ -1,32 +1,42 @@
 {
-  "variables": [
-    {
-      "name": "description",
-      "type": "string",
-      "description": "Description for the NAS namespace",
-      "default": "Managed by Terraform",
-      "required": false
+  "description": {
+    "description": "Description for the NAS namespace",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "NAS命名空间的描述。",
+      "en-US": "Description for the NAS namespace"
     },
-    {
-      "name": "nas_namespace_id",
-      "type": "string",
-      "description": "Existing NAS namespace ID. If provided, will use existing namespace instead of creating new one",
-      "default": "",
-      "required": false
+    "default": "Managed by Terraform"
+  },
+  "nas_namespace_id": {
+    "description": "Existing NAS namespace ID. If provided, will use existing namespace instead of creating new one",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "现有NAS命名空间ID。如果提供，将使用现有命名空间而不是创建新的。",
+      "en-US": "Existing NAS namespace ID. If provided, will use existing namespace instead of creating new one"
     },
-    {
-      "name": "filesystems",
-      "type": "list(string)",
-      "description": "List of filesystem configurations to create and attach to namespace",
-      "default": [],
-      "required": false
+    "default": ""
+  },
+  "filesystems": {
+    "description": "List of filesystem configurations to create and attach to namespace",
+    "type": "list(string)",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "要创建并附加到命名空间的文件系统配置列表。",
+      "en-US": "List of filesystem configurations to create and attach to namespace"
     },
-    {
-      "name": "accessgroups",
-      "type": "list(object)",
-      "description": "List of access group configurations",
-      "default": [],
-      "required": false
-    }
-  ]
+    "default": []
+  },
+  "accessgroups": {
+    "description": "List of access group configurations",
+    "type": "list(object)",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "访问组配置列表。",
+      "en-US": "List of access group configurations"
+    },
+    "default": []
+  }
 }

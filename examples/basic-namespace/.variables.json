@@ -1,0 +1,22 @@
+{
+  "description": {
+    "description": "Description for the NAS namespace",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "NAS命名空间的描述。",
+      "en-US": "Description for the NAS namespace"
+    },
+    "default": "tf-namespace1"
+  },
+  "filesystems": {
+    "description": "List of filesystem configurations to create and attach to namespace",
+    "type": "list(string)",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "要创建并附加到命名空间的文件系统配置列表。",
+      "en-US": "List of filesystem configurations to create and attach to namespace"
+    },
+    "default": ["test1", "test2"]
+  }
+}

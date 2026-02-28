@@ -1,0 +1,14 @@
+{
+  "title": {
+    "zh-Hans": "现有NAS命名空间",
+    "en-US": "Existing NAS Namespace"
+  },
+  "overview": {
+    "zh-Hans": "此示例演示如何使用现有的NAS命名空间，并为其添加文件系统和访问组。",
+    "en-US": "This example demonstrates how to use an existing NAS namespace and add file systems and access groups to it."
+  },
+  "description": {
+    "zh-Hans": "使用现有NAS命名空间的示例",
+    "en-US": "Example for using existing NAS namespace"
+  }
+}
