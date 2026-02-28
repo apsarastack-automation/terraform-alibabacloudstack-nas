@@ -1,10 +1,19 @@
 {
   "name": "nas_file_system",
-  "description": "Module for creating NAS file system with access groups, mount targets and directory quotas",
+  "title": {
+    "zh-Hans": "NAS文件系统模块",
+    "en-US": "NAS File System Module"
+  },
+  "overview": {
+    "zh-Hans": "该模块提供阿里云NAS（网络附加存储）文件系统的全面管理功能，包括文件系统创建、访问组管理、挂载点创建和目录配额管理。",
+    "en-US": "This module provides comprehensive management of Alibaba Cloud NAS (Network Attached Storage) file systems, including filesystem creation, access group management, mount target creation, and directory quota management."
+  },
+  "description": {
+    "zh-Hans": "用于创建NAS文件系统的Terraform模块，支持访问组、挂载目标和目录配额。",
+    "en-US": "Terraform module for creating NAS file system with access groups, mount targets and directory quotas"
+  },
   "provider": "alibabacloudstack",
-  "version": "1.0.0",
-  "category": "Storage",
-  "tags": ["nas", "filesystem", "storage"],
+  "version": "3.18",
   "related_resources": [
     "alibabacloudstack_nas_file_system",
     "alibabacloudstack_nas_accessgroup",
