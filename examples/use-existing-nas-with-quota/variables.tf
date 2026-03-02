@@ -1,5 +1,5 @@
 variable "description" {
-  default = "tftest1"
+  default = ""
 }
 
 variable "quota_path" {
@@ -7,20 +7,18 @@ variable "quota_path" {
 }
 
 variable "quotas" {
-  default = [
-    {
-      quota_type       = "Enforcement"
-      user_type        = "Uid"
-      user_id          = "1001"
-      size_limit       = 500
-      file_count_limit = 50000
-    },
-    {
-      quota_type       = "Accounting"
-      user_type        = "Uid"
-      user_id          = "1000"
-      size_limit       = 0
-      file_count_limit = 0
-    }
-  ]
+  description = "A list of quota configurations"
+  type = list(object({
+    quota_type       = string
+    user_type        = string
+    user_id          = string
+    size_limit       = optional(number)
+    file_count_limit = optional(number)
+  }))
+  default = []
+}
+
+variable "nas_file_system_id" {
+  description = "Existing file system ID"
+  default     = ""
 }

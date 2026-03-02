@@ -1,7 +1,3 @@
-# Get NAS zones data for auto-detection
-data "alibabacloudstack_nas_zones" "default" {
-}
-
 # Create lifecycle policy for NAS file system
 resource "alibabacloudstack_nas_lifecycle_policy" "default" {
   file_system_id        = var.file_system_id

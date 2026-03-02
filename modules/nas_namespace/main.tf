@@ -2,14 +2,22 @@
 data "alibabacloudstack_nas_zones" "default" {
 }
 
+# Get existing namespaces - use coalesce to handle empty input
 data "alibabacloudstack_nas_namespaces" "default" {
-  ids = [var.nas_namespace_id]
+  ids = [coalesce(var.nas_namespace_id, "fake_id")]
+}
+
+resource "terraform_data" "namespace_exists" {
+  input = length(data.alibabacloudstack_nas_namespaces.default.ids) > 0 ? 0 : 1
+  lifecycle {
+    ignore_changes = [ input ]
+  }
 }
 
 # Create or use existing NAS namespace
 resource "alibabacloudstack_nas_namespace" "default" {
-  count = length(data.alibabacloudstack_nas_namespaces.default.ids) > 0 ? 0 : 1
-  
+  count = terraform_data.namespace_exists.input
+
   zone_id       = data.alibabacloudstack_nas_zones.default.zones.0.zone_id
   cluster_id    = data.alibabacloudstack_nas_zones.default.zones.0.clusters.0.cluster_id
   description   = var.description
@@ -20,7 +28,9 @@ resource "alibabacloudstack_nas_namespace" "default" {
 
 # Local value for namespace ID (existing or newly created)
 locals {
-  namespace_id = length(data.alibabacloudstack_nas_namespaces.default.ids) > 0 ? data.alibabacloudstack_nas_namespaces.default.ids.0: alibabacloudstack_nas_namespace.default.0.id
+  namespace_id = terraform_data.namespace_exists.input == 0 ? data.alibabacloudstack_nas_namespaces.default.ids[0] : (
+    length(alibabacloudstack_nas_namespace.default) > 0 ? alibabacloudstack_nas_namespace.default[0].id : ""
+  )
 }
 
 # Create NAS file systems based on filesystems parameter
@@ -35,8 +45,8 @@ resource "alibabacloudstack_nas_file_system" "filesystems" {
 
 # Attach file systems to namespace (one-to-many binding)
 resource "alibabacloudstack_nas_namespace_filesystem_attachment" "attachments" {
-  for_each = { for filesystem in var.filesystems: filesystem=>filesystem }
-  
+  for_each = { for idx, filesystem in var.filesystems : idx => filesystem }
+
   nas_namespace_id = local.namespace_id
   mapped_path      = alibabacloudstack_nas_file_system.filesystems[each.key].description
   file_system_id   = alibabacloudstack_nas_file_system.filesystems[each.key].id
@@ -44,17 +54,18 @@ resource "alibabacloudstack_nas_namespace_filesystem_attachment" "attachments" {
 
 # Create access groups based on accessgroups parameter
 resource "alibabacloudstack_nas_accessgroup" "accessgroups" {
-  for_each = { for accessgroup in var.accessgroups: accessgroup.access_group_name=>accessgroup }
-  
+  for_each = { for accessgroup in var.accessgroups : accessgroup.access_group_name => accessgroup }
+
   access_group_name = each.value.access_group_name
   access_group_type = each.value.vswitch_id != "" ? "Vpc" : "Classic"
 }
 
 # Create namespace mount targets for VPC access groups
 resource "alibabacloudstack_nas_namespace_mount_target" "mount_targets" {
-  depends_on = [ "alibabacloudstack_nas_accessgroup.accessgroups" ]
-  for_each = { for accessgroup in var.accessgroups: accessgroup.access_group_name=>accessgroup }
-  
+  depends_on = [alibabacloudstack_nas_accessgroup.accessgroups]
+
+  for_each = { for accessgroup in var.accessgroups : accessgroup.access_group_name => accessgroup }
+
   network_type      = each.value.vswitch_id != "" ? "Vpc" : "Classic"
   access_group_name = each.value.access_group_name
   nas_namespace_id  = local.namespace_id

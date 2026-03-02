@@ -1,13 +1,3 @@
-output "vpc_ids" {
-  description = "The IDs of the created VPCs"
-  value       = alibabacloudstack_vpc_vpc.existing[*].id
-}
-
-output "vswitch_ids" {
-  description = "The IDs of the created VSwitches"
-  value       = alibabacloudstack_vpc_vswitch.existing[*].id
-}
-
 output "file_system_id" {
   description = "The ID of the created file system"
   value       = module.nas_multiple_access_groups.file_system_id

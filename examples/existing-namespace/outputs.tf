@@ -1,11 +1,6 @@
 output "nas_namespace_id" {
   description = "The ID of the existing NAS namespace"
-  value       = alibabacloudstack_nas_namespace.existing.id
-}
-
-output "nas_namespace_description" {
-  description = "The description of the existing NAS namespace"
-  value       = alibabacloudstack_nas_namespace.existing.description
+  value       = module.existing_namespace.nas_namespace_id
 }
 
 output "filesystem_ids" {

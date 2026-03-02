@@ -6,8 +6,16 @@
     "i18n": {
       "zh-Hans": "NAS命名空间的描述。",
       "en-US": "Description for the NAS namespace"
-    },
-    "default": "tf-namespace2"
+    }
+  },
+  "nas_namespace_id": {
+    "description": "The ID of the nas namespace",
+    "type": "string",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "NAS命名空间的ID。",
+      "en-US": "The ID of the nas namespace"
+    }
   },
   "filesystems": {
     "description": "List of filesystem configurations to create and attach to namespace",
@@ -16,7 +24,15 @@
     "i18n": {
       "zh-Hans": "要创建并附加到命名空间的文件系统配置列表。",
       "en-US": "List of filesystem configurations to create and attach to namespace"
-    },
-    "default": ["test1", "test2"]
+    }
+  },
+  "accessgroups": {
+    "description": "List of access groups to create and attach to namespace",
+    "type": "list(string)",
+    "optional": true,
+    "i18n": {
+      "zh-Hans": "要创建并附加到命名空间的访问组列表。",
+      "en-US": "List of access groups to create and attach to namespace"
+    }
   }
 }
