@@ -45,7 +45,7 @@ resource "alibabacloudstack_nas_file_system" "filesystems" {
 
 # Attach file systems to namespace (one-to-many binding)
 resource "alibabacloudstack_nas_namespace_filesystem_attachment" "attachments" {
-  for_each = { for idx, filesystem in var.filesystems : idx => filesystem }
+   for_each = { for filesystem in var.filesystems: filesystem=>filesystem }
 
   nas_namespace_id = local.namespace_id
   mapped_path      = alibabacloudstack_nas_file_system.filesystems[each.key].description
@@ -54,7 +54,7 @@ resource "alibabacloudstack_nas_namespace_filesystem_attachment" "attachments" {
 
 # Create access groups based on accessgroups parameter
 resource "alibabacloudstack_nas_accessgroup" "accessgroups" {
-  for_each = { for accessgroup in var.accessgroups : accessgroup.access_group_name => accessgroup }
+  for_each = { for accessgroup in var.accessgroups: accessgroup.access_group_name=>accessgroup }
 
   access_group_name = each.value.access_group_name
   access_group_type = each.value.vswitch_id != "" ? "Vpc" : "Classic"
@@ -64,7 +64,7 @@ resource "alibabacloudstack_nas_accessgroup" "accessgroups" {
 resource "alibabacloudstack_nas_namespace_mount_target" "mount_targets" {
   depends_on = [alibabacloudstack_nas_accessgroup.accessgroups]
 
-  for_each = { for accessgroup in var.accessgroups : accessgroup.access_group_name => accessgroup }
+  for_each = { for accessgroup in var.accessgroups: accessgroup.access_group_name=>accessgroup }
 
   network_type      = each.value.vswitch_id != "" ? "Vpc" : "Classic"
   access_group_name = each.value.access_group_name
