@@ -204,8 +204,8 @@ module "existing_namespace" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 1.0 |
-| alibabacloudstack provider | >= 1.0 |
+| terraform | >= 1.5.6 |
+| alibabacloudstack provider | >= 3.18.23, < 3.19.0 |
 
 ## Providers
 

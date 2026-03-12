@@ -1,16 +1,16 @@
-Terraform module which creates NAS (Network Attached Storage) file system on Alibaba Cloud Stack
+# Terraform Module for Creating NAS (Network Attached Storage) File Systems on Alibaba Cloud Stack
 
 terraform-alibabacloudstack-nas-file-system
 ---
 
-This module is used to create a NAS (Network Attached Storage) file system with access groups, mount targets, and directory quotas on Alibaba Cloud Stack.
+This module is used to create NAS (Network Attached Storage) file systems on Alibaba Cloud Stack, including access groups, mount targets, and directory quotas.
 
-These types of resources are supported:
+It supports the following resource types:
 
-* [alibabacloudstack_nas_file_system](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs/resources/nas_file_system)
-* [alibabacloudstack_nas_accessgroup](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs/resources/nas_accessgroup)
-* [alibabacloudstack_nas_mounttarget](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs/resources/nas_mounttarget)
-* [alibabacloudstack_nas_dir_quota](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs/resources/nas_dir_quota)
+* alibabacloudstack_nas_file_system
+* alibabacloudstack_nas_accessgroup
+* alibabacloudstack_nas_mounttarget
+* alibabacloudstack_nas_dir_quota
 
 ## Usage
 
@@ -22,7 +22,7 @@ module "nas_file_system" {
   storage_type  = "Performance"
   description   = "My NAS file system"
   
-  # Mount targets configuration
+  # Mount target configuration
   mounts = [
     {
       access_group_name = "my-access-group"
@@ -30,7 +30,7 @@ module "nas_file_system" {
     }
   ]
   
-  # Directory quota (optional)
+  # Directory quotas (optional)
   quota_path = "/data"
   quotas = [
     {
@@ -44,63 +44,54 @@ module "nas_file_system" {
 }
 ```
 
-## Notes
-
-* This module using AccessKey and SecretKey are from `profile` and `shared_credentials_file`. If you have not set them
-  yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
-
 ## Requirements
 
 | Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_alibabacloudstack"></a> [alibabacloudstack](#requirement\_alibabacloudstack) | >= 3.18 |
+|------|------|
+| terraform | >= 1.5.6 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
-| <a name="provider_alibabacloudstack"></a> [alibabacloudstack](#provider\_alibabacloudstack) | >= 3.18 |
+|------|------|
+| alibabacloudstack | >= 3.18.23, < 3.19.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|----------|
-| protocol_type | File transfer protocol type | `string` | `""` | no |
+|------|------|------|--------|------|
+| protocol_type | The file transfer protocol type | `string` | `""` | no |
 | storage_type | The storage type | `string` | `""` | no |
-| description | File system description | `string` | n/a | yes |
-| mounts | A list of access group configurations | `list(object)` | `[]` | no |
-| quota_path | Whether to enable directory quota | `string` | `"/"` | no |
-| quotas | A list of quota configurations | `list(object)` | `[]` | no |
-| nas_file_system_id | Existing file system ID | `string` | `""` | no |
+| description | The description of the file system | `string` | n/a | yes |
+| mounts | List of access group configurations | `list(object)` | `[]` | no |
+| quota_path | The path for enabling directory quotas | `string` | `"/"` | no |
+| quotas | List of quota configurations | `list(object)` | `[]` | no |
+| nas_file_system_id | ID of an existing file system | `string` | `""` | no |
 
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+|------|------|
 | file_system_id | The ID of the created file system |
 | file_system_description | The description of the file system |
-| quota_status | The status of directory quota |
+| quota_status | The status of the directory quota |
 | protocol_type | The protocol type of the file system |
 | storage_type | The storage type of the file system |
 
-## Submit Issues
+## Reporting Issues
 
-If you have any problems when using this module, please opening
-a [provider issue](https://github.com/aliyun/terraform-provider-alibabacloudstack/issues/new) and let us know.
-
-**Note:** There does not recommend to open an issue on this repo.
+If you encounter any issues while using this module, please submit a [provider issue](https://github.com/aliyun/terraform-provider-alibabacloudstack/issues/new) and let us know.
 
 ## Authors
 
-Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
+Created and maintained by the Alibaba Cloud Terraform Team.
 
 ## License
 
-MIT Licensed. See LICENSE for full details.
+MIT License. See LICENSE for details.
 
-## Reference
+## References
 
 * [Terraform-Provider-Alibabacloudstack Github](https://github.com/aliyun/terraform-provider-alibabacloudstack)
 * [Terraform-Provider-Alibabacloudstack Release](https://registry.terraform.io/providers/aliyun/alibabacloudstack)
-* [Terraform-Provider-Alibabacloudstack Docs](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs)
+* [Terraform-Provider-Alibabacloudstack Documentation](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs)

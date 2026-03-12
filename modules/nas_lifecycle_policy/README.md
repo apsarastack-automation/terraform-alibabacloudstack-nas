@@ -1,13 +1,13 @@
-Terraform module which creates NAS (Network Attached Storage) lifecycle policy on Alibaba Cloud Stack
+# Terraform Module for Creating NAS (Network Attached Storage) Lifecycle Policies on Alibaba Cloud Stack
 
 terraform-alibabacloudstack-nas-lifecycle-policy
 ---
 
-This module is used to create a NAS (Network Attached Storage) lifecycle policy for automatic data lifecycle management on Alibaba Cloud Stack.
+This module is used to create NAS (Network Attached Storage) lifecycle policies on Alibaba Cloud Stack, enabling automated data lifecycle management.
 
-These types of resources are supported:
+It supports the following resource types:
 
-* [alibabacloudstack_nas_lifecycle_policy](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs/resources/nas_lifecycle_policy)
+* alibabacloudstack_nas_lifecycle_policy
 
 ## Usage
 
@@ -25,60 +25,51 @@ module "nas_lifecycle_policy" {
 }
 ```
 
-## Notes
-
-* This module using AccessKey and SecretKey are from `profile` and `shared_credentials_file`. If you have not set them
-  yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
-
 ## Requirements
 
 | Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 3.18 |
-| <a name="requirement_alibabacloudstack"></a> [alibabacloudstack](#requirement\_alibabacloudstack) | >= 3.18 |
+|------|------|
+| terraform | >= 1.5.6 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
-| <a name="provider_alibabacloudstack"></a> [alibabacloudstack](#provider\_alibabacloudstack) | >= 3.18 |
+|------|------|
+| alibabacloudstack | >= 3.18.23, < 3.19.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|----------|
-| file_system_id | The ID of the file system to apply lifecycle policy | `string` | n/a | yes |
-| lifecycle_policy_name | Lifecycle policy name | `string` | n/a | yes |
-| lifecycle_rule_name | Lifecycle rule name (DEFAULT_ATIME_14/30/60/90) | `string` | n/a | yes |
-| path | Absolute path for lifecycle policy | `string` | `"/"` | no |
-| oss_bucket | OSS bucket name for lifecycle policy | `string` | n/a | yes |
-| recursive | Whether to recursively apply lifecycle policy to sub-paths | `bool` | `false` | no |
-| storage_type | The type of storage after the data dump | `string` | `"InfrequentAccess"` | no |
+|------|------|------|--------|------|
+| file_system_id | The ID of the file system to which the lifecycle policy will be applied | `string` | n/a | yes |
+| lifecycle_policy_name | The name of the lifecycle policy | `string` | n/a | yes |
+| lifecycle_rule_name | The name of the lifecycle rule (DEFAULT_ATIME_14/30/60/90) | `string` | n/a | yes |
+| path | The absolute path for the lifecycle policy | `string` | `"/"` | no |
+| oss_bucket | The name of the OSS bucket for the lifecycle policy | `string` | n/a | yes |
+| recursive | Whether to recursively apply the lifecycle policy to sub-paths | `bool` | `false` | no |
+| storage_type | The storage type after data archiving | `string` | `"InfrequentAccess"` | no |
 
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+|------|------|
 | lifecycle_policy_id | The ID of the created lifecycle policy |
 | create_time | The creation time of the lifecycle policy |
 
-## Submit Issues
+## Reporting Issues
 
-If you have any problems when using this module, please opening
-a [provider issue](https://github.com/aliyun/terraform-provider-alibabacloudstack/issues/new) and let us know.
-
-**Note:** There does not recommend to open an issue on this repo.
+If you encounter any issues while using this module, please submit a [provider issue](https://github.com/aliyun/terraform-provider-alibabacloudstack/issues/new) and let us know.
 
 ## Authors
 
-Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
+Created and maintained by the Alibaba Cloud Terraform Team.
 
 ## License
 
-MIT Licensed. See LICENSE for full details.
+MIT License. See LICENSE for details.
 
-## Reference
+## References
 
 * [Terraform-Provider-Alibabacloudstack Github](https://github.com/aliyun/terraform-provider-alibabacloudstack)
 * [Terraform-Provider-Alibabacloudstack Release](https://registry.terraform.io/providers/aliyun/alibabacloudstack)
-* [Terraform-Provider-Alibabacloudstack Docs](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs)
+* [Terraform-Provider-Alibabacloudstack Documentation](https://registry.terraform.io/providers/aliyun/alibabacloudstack/latest/docs)
