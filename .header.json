@@ -1,13 +1,14 @@
 {
-  "name": "terraform-alibabacloudstack-nas",
-  "version": "1.0.0",
-  "description": "Alibaba CloudStack NAS module for managing Network Attached Storage resources",
-  "provider": "alibabacloudstack",
-  "category": "Storage",
-  "resources": [
-    "alibabacloudstack_nas_file_system",
-    "alibabacloudstack_nas_mounttarget",
-    "alibabacloudstack_nas_accessgroup",
-    "alibabacloudstack_nas_dir_quota"
-  ]
+  "title": {
+    "zh-Hans": "阿里云Stack NAS文件存储管理模块",
+    "en-US": "Alibaba Cloud Stack NAS File Storage Management Module"
+  },
+  "overview": {
+    "zh-Hans": "该Terraform模块用于统一管理阿里云Stack平台上的NAS文件存储资源，包括文件系统、挂载点、权限组及目录配额等核心组件的声明式配置。",
+    "en-US": "This Terraform module provides unified management of NAS file storage resources on Alibaba Cloud Stack, enabling declarative configuration of core components including file systems, mount targets, access groups, and directory quotas."
+  },
+  "description": {
+    "zh-Hans": "管理阿里云Stack NAS资源：文件系统、挂载点、权限组及目录配额。支持企业共享存储、容器持久卷、大数据及备份场景，具备高可用与弹性扩展能力。",
+    "en-US": "Manages Alibaba Cloud Stack NAS resources: file systems, mount targets, access groups, and directory quotas. Supports enterprise shared storage, container PVs, big data, and backup scenarios with high availability and elastic scaling."
+  }
 }
